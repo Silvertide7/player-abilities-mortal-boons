@@ -2,6 +2,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'net.neoforged.moddev' version '2.0.143'
+    id "me.modmuss50.mod-publish-plugin" version "0.8.3"
     id 'idea'
 }
 
@@ -28,6 +29,10 @@ sourceSets.main.resources {
 
 repositories {
     mavenLocal()
+    maven {
+        url 'https://cursemaven.com'
+        content { includeGroup 'curse.maven' }
+    }
 }
 
 base {
@@ -115,6 +120,11 @@ neoForge {
 // "optional", meaning it will not be pulled by dependents of this mod.
 configurations {
     runtimeClasspath.extendsFrom localRuntime
+}
+
+dependencies {
+    compileOnly "curse.maven:player-abilities-1600309:${player_abilities_version}"
+    localRuntime "curse.maven:player-abilities-1600309:${player_abilities_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
