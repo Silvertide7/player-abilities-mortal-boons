@@ -1,0 +1,13 @@
+{
+  "weight": [0, 100, 100, 100],
+  "types": [
+    "mortal_boons:wolf"
+  ],
+  "description": "The kill is not the end of it.",
+  "ability_grants": [
+    {
+      "ability": "playerabilities_mortalboons:bloodscent",
+      "level": [1, 1, 2, 3]
+    }
+  ]
+}

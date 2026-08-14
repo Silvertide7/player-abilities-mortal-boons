@@ -1,0 +1,14 @@
+{
+  "ability.playerabilities_mortalboons.guardian_angel": "Guardian Angel",
+  "ability.playerabilities_mortalboons.guardian_angel.description": "When a blow would kill you, you survive it and recover 25% / 50% / 75% of your maximum health.",
+  "ability.playerabilities_mortalboons.second_wind": "Second Wind",
+  "ability.playerabilities_mortalboons.second_wind.description": "Dropping below 30% health steadies you with Regeneration I / II / III for 30 seconds.",
+  "ability.playerabilities_mortalboons.bloodscent": "Bloodscent",
+  "ability.playerabilities_mortalboons.bloodscent.description": "A kill leaves you hunting, with Strength I / I / II and Speed I for 8 / 10 / 12 seconds.",
+  "ability.playerabilities_mortalboons.swift_step": "Swift Step",
+  "ability.playerabilities_mortalboons.swift_step.description": "Taking a hit sends you moving with Speed I / I / II for 10 / 15 / 15 seconds.",
+  "boon.playerabilities_mortalboons.guardian_angel": "Guardian Angel",
+  "boon.playerabilities_mortalboons.second_wind": "Second Wind",
+  "boon.playerabilities_mortalboons.bloodscent": "Bloodscent",
+  "boon.playerabilities_mortalboons.swift_step": "Swift Step"
+}

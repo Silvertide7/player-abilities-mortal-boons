@@ -1,0 +1,13 @@
+{
+  "weight": [0, 100, 100, 100],
+  "types": [
+    "mortal_boons:hare"
+  ],
+  "description": "Pain arrives late. Speed arrives first.",
+  "ability_grants": [
+    {
+      "ability": "playerabilities_mortalboons:swift_step",
+      "level": [1, 1, 2, 3]
+    }
+  ]
+}

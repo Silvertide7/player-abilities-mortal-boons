@@ -125,6 +125,9 @@ configurations {
 dependencies {
     compileOnly "curse.maven:player-abilities-1600309:${player_abilities_version}"
     localRuntime "curse.maven:player-abilities-1600309:${player_abilities_version}"
+
+    compileOnly "curse.maven:mortal_boons-1603329:${mortal_boons_version}"
+    localRuntime "curse.maven:mortal_boons-1603329:${mortal_boons_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

@@ -1,0 +1,13 @@
+{
+  "weight": [0, 100, 100, 100],
+  "types": [
+    "mortal_boons:bear"
+  ],
+  "description": "The body finds one more breath.",
+  "ability_grants": [
+    {
+      "ability": "playerabilities_mortalboons:second_wind",
+      "level": [1, 1, 2, 3]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "weight": [0, 0, 100, 100],
+  "types": [
+    "mortal_boons:bear"
+  ],
+  "description": "Something is watching. It will step in once.",
+  "ability_grants": [
+    {
+      "ability": "playerabilities_mortalboons:guardian_angel",
+      "level": [1, 1, 1, 3]
+    }
+  ]
+}
