@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "net.silvertide.playerabilities_mortalboons.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "mixins": [
+    "LivingEntityClimbMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

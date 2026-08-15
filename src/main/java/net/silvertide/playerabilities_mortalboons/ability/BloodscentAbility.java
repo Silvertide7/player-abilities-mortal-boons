@@ -12,6 +12,7 @@ import java.util.List;
 public final class BloodscentAbility extends TriggeredAbility<LivingEntity> {
     private static final int MAX_LEVEL = 3;
     private static final int COOLDOWN_TICKS = 600;
+    private static final int KILLS_TO_RECHARGE = 2;
 
     @Override
     public AbilityTrigger<LivingEntity> getTrigger() {
@@ -26,6 +27,11 @@ public final class BloodscentAbility extends TriggeredAbility<LivingEntity> {
     @Override
     public int getCooldownTicks(int level) {
         return COOLDOWN_TICKS;
+    }
+
+    @Override
+    public int getKillRequirement(int level) {
+        return KILLS_TO_RECHARGE;
     }
 
     @Override

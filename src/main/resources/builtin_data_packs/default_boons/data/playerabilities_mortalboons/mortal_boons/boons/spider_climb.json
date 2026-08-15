@@ -1,0 +1,12 @@
+{
+  "weight": [0, 0, 100, 100],
+  "types": [
+    "mortal_boons:wyrm"
+  ],
+  "description": "No wall refuses the wyrm.",
+  "ability_grants": [
+    {
+      "ability": "playerabilities_mortalboons:spider_climb"
+    }
+  ]
+}

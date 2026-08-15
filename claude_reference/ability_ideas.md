@@ -22,12 +22,17 @@ Backlog for this mod. Built abilities move out of "Open slots" and into "Shipped
 | --- | --- | --- | --- | --- |
 | `guardian_angel` | Triggered | `LETHAL_DAMAGE` | Bear | Diamond 1, Netherite 3 |
 | `second_wind` | Triggered | `HEALTH_DROPPED` below 30% | Bear | Gold 1, Diamond 2, Netherite 3 |
-| `bloodscent` | Triggered | `KILL`, 30s cooldown | Wolf | Gold 1, Diamond 2, Netherite 3 |
-| `swift_step` | Triggered | `DAMAGE_TAKEN`, 90s cooldown | Hare | Gold 1, Diamond 2, Netherite 3 |
+| `bloodscent` | Triggered | `KILL`, 30s cooldown + 2 kills | Wolf | Gold 1, Diamond 2, Netherite 3 |
+| `swift_step` | Triggered | `DAMAGE_TAKEN`, 90s cooldown + 10 damage | Hare | Gold 1, Diamond 2, Netherite 3 |
+| `spider_climb` | Passive | Spider climb via `LivingEntity#onClimbable` mixin | Wyrm | Diamond+, single level |
 
 ## Open slots
 
-4 passive, 4 active. Triggered is full.
+3 passive, 4 active. Triggered is full.
+
+Mixin infrastructure now exists (`playerabilities_mortalboons.mixins.json` + `[[mixins]]` in the
+mods.toml template) — `skimmer`-style movement passives no longer pay the setup cost, but each mixin
+still has to be ported by hand on the 1.20.1 Forge branch.
 
 All four boons are at weight 100 for testing (Guardian Angel `[0, 0, 100, 100]`, the rest
 `[0, 100, 100, 100]`). Drop them back to 10 before shipping.
@@ -45,17 +50,33 @@ All four boons are at weight 100 for testing (Guardian Angel `[0, 0, 100, 100]`,
 
 ## Passive ideas
 
-`PassiveAbility` gives `getAttributeGrants(level)` plus `onActivated` / `onDeactivated`. There is no
-tick hook — ongoing behavior means starting an `AbilityTickJobs.schedule` job in `onActivated` and
-cancelling its handle in `onDeactivated`.
+**Passives must do something, not just grant attributes.** Mortal Boons already owns flat stats.
 
-| Name | Sign | Sketch | Cost |
+Three implementation lanes:
+
+1. **Our own event handler.** Player Abilities does not need to expose a hook — an
+   `@EventBusSubscriber` in this mod can listen to any NeoForge event and gate on
+   `AbilityAPI.getPassiveLevel(player, ABILITY) > 0`, which returns 0 when the player toggles the
+   passive off. `ModAbilities` holds the instances as static finals so handlers can reference them.
+   This is the cheapest lane and covers most ideas.
+2. **Tick job.** `AbilityTickJobs.schedule` in `onActivated`, cancel the handle in `onDeactivated`.
+   Safe as of Player Abilities 1.0.7, which fixed jobs stacking on death.
+3. **Mixin.** Only for movement and physics, where vanilla offers no hook. This mod has no mixin
+   setup yet, and whatever we add has to be redone on the 1.20.1 Forge branch.
+
+| Name | Sign | What it does | Lane |
 | --- | --- | --- | --- |
-| `attuned` | Raven | Grants `player_abilities:ability_cooldown` — every other ability comes back faster. Nothing in Mortal Boons touches this attribute. | Trivial, attribute only |
-| `wellspring` | Wyrm | Grants `player_abilities:ability_power`, scaling any ability that reads `AbilityAPI.getAbilityPower`. Worth holding until some ability actually reads it. | Trivial |
-| `nightsight` | Raven | Night Vision whenever the light level around you is low; drops off in daylight. | Tick job |
-| `riverblood` | Wyrm | While submerged: water breathing and Dolphin's Grace. | Tick job |
-| `warm_blooded` | Wyrm | Immunity to freezing, and powder snow does not slow you. | Tick job |
+| `skimmer` | Hare | Sprint across water without sinking; sneak to drop in. | Mixin — `LivingEntity#canStandOnFluid` returning true for water, the way `Strider` does for lava. Verify collision in dev |
+| `unseen` | Raven | Hostile mobs will not target you until you strike first. | Event — cancel `LivingChangeTargetEvent` when the new target is a holder who has not hurt that mob |
+| `cinderheart` | Wyrm | Fire and lava barely hurt, and you never catch alight. | Event — `LivingDamageEvent.Pre`, reduce when `source.is(DamageTypeTags.IS_FIRE)`, plus `clearFire` |
+| `soulbound` | Raven | Keep a share of your experience through death. | Event — `PlayerEvent.Clone` on `wasDeath`, restore a fraction of the original's XP. Passive is still granted at this point; Mortal Boons revokes at `PlayerRespawnEvent` |
+| `carrion_sense` | Wolf | Everything you kill drops more. | Event — `LivingDropsEvent`, duplicate a share of the drops |
+| `quarryhand` | Wyrm | Ore you break sometimes yields a second drop, no enchantment involved. | Event — `BlockEvent.BreakEvent` or `HarvestDrops` |
+| `ironstomach` | Bear | Sprinting and jumping cost you no hunger, and rotten flesh never sickens you. | Tick job zeroing exhaustion, plus an event to strip the hunger effect |
+| `warm_blooded` | Bear | Freezing cannot hurt you and powder snow does not slow you. | Tick job — `setTicksFrozen(0)` |
+| `riverblood` | Wyrm | Never drown, swim like a dolphin, and mine at full speed underwater. | Tick job |
+| `momentum` | Hare | Sustained sprinting keeps building speed; it resets when you stop. | Tick job counting continuous sprint ticks |
+| `nightsight` | Raven | See in the dark wherever the light level is low. | Tick job refreshing Night Vision well before it flickers |
 
 ## Active ideas
 

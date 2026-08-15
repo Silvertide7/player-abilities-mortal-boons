@@ -11,6 +11,7 @@ import java.util.List;
 public final class SwiftStepAbility extends TriggeredAbility<PlayerTriggers.DamageTaken> {
     private static final int MAX_LEVEL = 3;
     private static final int COOLDOWN_TICKS = 1800;
+    private static final float DAMAGE_TO_RECHARGE = 10.0f;
 
     @Override
     public AbilityTrigger<PlayerTriggers.DamageTaken> getTrigger() {
@@ -25,6 +26,11 @@ public final class SwiftStepAbility extends TriggeredAbility<PlayerTriggers.Dama
     @Override
     public int getCooldownTicks(int level) {
         return COOLDOWN_TICKS;
+    }
+
+    @Override
+    public float getDamageTakenRequirement(int level) {
+        return DAMAGE_TO_RECHARGE;
     }
 
     @Override
