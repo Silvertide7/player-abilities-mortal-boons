@@ -23,7 +23,7 @@ public abstract class LivingEntityClimbMixin {
         if (cir.getReturnValueZ() || !((Object) this instanceof Player player)) {
             return;
         }
-        if (!player.horizontalCollision || player.getAbilities().flying) {
+        if (!player.horizontalCollision || player.isShiftKeyDown() || player.getAbilities().flying) {
             return;
         }
         if (AbilityAPI.getPassiveLevel(player, ModAbilities.SPIDER_CLIMB) > 0) {

@@ -17,7 +17,7 @@ Mortal Boons turns progression into a gamble. Craft a Fatestone, pay it experien
 
 ## Passive Abilities
 
-*    **![](<insert spider_climb.png here>) Spider Climb**: Climb any wall like a spider. Sneak to cling in place instead of sliding back down. Works on anything you can press against, and can be toggled off in the ability book.
+*    **![](<insert spider_climb.png here>) Spider Climb**: Climb any wall like a spider. Keep moving to keep climbing. Works on anything you can press against, and can be toggled off in the ability book.
 *    **![](<insert water_running.png here>) Water Running**: Sprint across the surface of open water. Slow down or stop and it takes you back. Leaping from a sprint-swim lands you running on the waves.
 
 ## Triggered Abilities
