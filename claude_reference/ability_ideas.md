@@ -26,10 +26,11 @@ Backlog for this mod. Built abilities move out of "Open slots" and into "Shipped
 | `swift_step` | Triggered | `DAMAGE_TAKEN`, 90s cooldown + 10 damage | Hare | Gold 1, Diamond 2, Netherite 3 |
 | `spider_climb` | Passive | Spider climb via `LivingEntity#onClimbable` mixin | Wyrm | Diamond+, single level |
 | `water_running` | Passive | Sprint across water on a full-cube `LiquidBlock#getCollisionShape` mixin (feet dry, so vanilla never cancels sprint); stop sprinting and you drop in | Hare | Diamond+, single level |
+| `echoing_blow` | Passive | `BlockEvent.BreakEvent`: 25/40/60% chance a matching adjoining block breaks too (twice at level 3), with tool context so Fortune/Silk apply | Wyrm | Gold 1, Diamond 2, Netherite 3 |
 
 ## Open slots
 
-2 passive, 4 active. Triggered is full.
+1 passive, 4 active. Triggered is full. Gravekeeper is ruled out for the last passive slot.
 
 Mixin infrastructure now exists (`playerabilities_mortalboons.mixins.json` + `[[mixins]]` in the
 mods.toml template) — `skimmer`-style movement passives no longer pay the setup cost, but each mixin
@@ -80,7 +81,6 @@ Every hook below was checked against the 1.21.1 sources.
 | `cinderheart` | Wyrm | Fire and lava barely hurt, and you never catch alight. | Event — `LivingDamageEvent.Pre` on `DamageTypeTags.IS_FIRE`, plus `clearFire` |
 | `soulbound` | Raven | Keep a share of your experience through death. | Event — `PlayerEvent.Clone` on `wasDeath` |
 | `carrion_sense` | Wolf | Everything you kill drops more. | Event — `LivingDropsEvent`, duplicate a share |
-| `quarryhand` | Wyrm | Ore sometimes yields a second drop, no enchantment involved. | Event — `BlockDropsEvent` |
 | `ironstomach` | Bear | Sprinting and jumping cost you no hunger. | Tick job zeroing exhaustion |
 | `warm_blooded` | Bear | Freezing cannot hurt you and powder snow does not slow you. | Tick job — `setTicksFrozen(0)` |
 | `riverblood` | Wyrm | Never drown, swim like a dolphin, and mine at full speed underwater. | Tick job |

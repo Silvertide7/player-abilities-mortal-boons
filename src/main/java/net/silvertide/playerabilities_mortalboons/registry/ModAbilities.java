@@ -6,6 +6,7 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 import net.silvertide.player_abilities.api.AbilityRegistry;
 import net.silvertide.playerabilities_mortalboons.PlayerAbilitiesMortalBoons;
 import net.silvertide.playerabilities_mortalboons.ability.BloodscentAbility;
+import net.silvertide.playerabilities_mortalboons.ability.EchoingBlowAbility;
 import net.silvertide.playerabilities_mortalboons.ability.GuardianAngelAbility;
 import net.silvertide.playerabilities_mortalboons.ability.SecondWindAbility;
 import net.silvertide.playerabilities_mortalboons.ability.SpiderClimbAbility;
@@ -20,6 +21,7 @@ public final class ModAbilities {
     public static final SwiftStepAbility SWIFT_STEP = new SwiftStepAbility();
     public static final SpiderClimbAbility SPIDER_CLIMB = new SpiderClimbAbility();
     public static final WaterRunningAbility WATER_RUNNING = new WaterRunningAbility();
+    public static final EchoingBlowAbility ECHOING_BLOW = new EchoingBlowAbility();
 
     private ModAbilities() {
     }
@@ -33,6 +35,7 @@ public final class ModAbilities {
             helper.register(PlayerAbilitiesMortalBoons.id("swift_step"), SWIFT_STEP);
             helper.register(PlayerAbilitiesMortalBoons.id("spider_climb"), SPIDER_CLIMB);
             helper.register(PlayerAbilitiesMortalBoons.id("water_running"), WATER_RUNNING);
+            helper.register(PlayerAbilitiesMortalBoons.id("echoing_blow"), ECHOING_BLOW);
         });
     }
 }
