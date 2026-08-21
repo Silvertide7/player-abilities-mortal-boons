@@ -13,5 +13,8 @@
   "boon.playerabilities_mortalboons.second_wind": "Second Wind",
   "boon.playerabilities_mortalboons.bloodscent": "Bloodscent",
   "boon.playerabilities_mortalboons.swift_step": "Swift Step",
-  "boon.playerabilities_mortalboons.spider_climb": "Spider Climb"
+  "boon.playerabilities_mortalboons.spider_climb": "Spider Climb",
+  "ability.playerabilities_mortalboons.water_running": "Water Running",
+  "ability.playerabilities_mortalboons.water_running.description": "Sprint across the surface of still water. Slow down or stop and you drop in.",
+  "boon.playerabilities_mortalboons.water_running": "Water Running"
 }

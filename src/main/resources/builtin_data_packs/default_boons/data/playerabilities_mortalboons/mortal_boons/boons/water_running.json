@@ -1,0 +1,12 @@
+{
+  "weight": [0, 0, 100, 100],
+  "types": [
+    "mortal_boons:hare"
+  ],
+  "description": "The river is only another road.",
+  "ability_grants": [
+    {
+      "ability": "playerabilities_mortalboons:water_running"
+    }
+  ]
+}

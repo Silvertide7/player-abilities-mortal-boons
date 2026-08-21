@@ -10,6 +10,7 @@ import net.silvertide.playerabilities_mortalboons.ability.GuardianAngelAbility;
 import net.silvertide.playerabilities_mortalboons.ability.SecondWindAbility;
 import net.silvertide.playerabilities_mortalboons.ability.SpiderClimbAbility;
 import net.silvertide.playerabilities_mortalboons.ability.SwiftStepAbility;
+import net.silvertide.playerabilities_mortalboons.ability.WaterRunningAbility;
 
 @EventBusSubscriber(modid = PlayerAbilitiesMortalBoons.MODID)
 public final class ModAbilities {
@@ -18,6 +19,7 @@ public final class ModAbilities {
     public static final BloodscentAbility BLOODSCENT = new BloodscentAbility();
     public static final SwiftStepAbility SWIFT_STEP = new SwiftStepAbility();
     public static final SpiderClimbAbility SPIDER_CLIMB = new SpiderClimbAbility();
+    public static final WaterRunningAbility WATER_RUNNING = new WaterRunningAbility();
 
     private ModAbilities() {
     }
@@ -30,6 +32,7 @@ public final class ModAbilities {
             helper.register(PlayerAbilitiesMortalBoons.id("bloodscent"), BLOODSCENT);
             helper.register(PlayerAbilitiesMortalBoons.id("swift_step"), SWIFT_STEP);
             helper.register(PlayerAbilitiesMortalBoons.id("spider_climb"), SPIDER_CLIMB);
+            helper.register(PlayerAbilitiesMortalBoons.id("water_running"), WATER_RUNNING);
         });
     }
 }
