@@ -18,6 +18,6 @@
   "ability.playerabilities_mortalboons.water_running.description": "Sprint across the surface of still water. Slow down or stop and you drop in.",
   "boon.playerabilities_mortalboons.water_running": "Water Running",
   "ability.playerabilities_mortalboons.echoing_blow": "Echoing Blow",
-  "ability.playerabilities_mortalboons.echoing_blow.description": "Breaking a block has a 25% / 40% / 60% chance to also break a matching block beside it. At max level it can echo twice.",
+  "ability.playerabilities_mortalboons.echoing_blow.description": "Breaking a block has a 25% / 40% / 60% chance to also break a matching block beside it.",
   "boon.playerabilities_mortalboons.echoing_blow": "Echoing Blow"
 }

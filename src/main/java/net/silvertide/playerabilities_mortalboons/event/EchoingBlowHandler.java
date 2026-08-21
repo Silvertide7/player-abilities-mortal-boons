@@ -31,13 +31,12 @@ public final class EchoingBlowHandler {
         if (level == 0 || !player.hasCorrectToolForDrops(event.getState())) {
             return;
         }
+        if (serverLevel.random.nextFloat() >= ModAbilities.ECHOING_BLOW.echoChance(level)) {
+            return;
+        }
         List<BlockPos> matches = matchingNeighbors(serverLevel, event.getPos(), event.getState().getBlock());
-        int attempts = ModAbilities.ECHOING_BLOW.echoAttempts(level);
-        float chance = ModAbilities.ECHOING_BLOW.echoChance(level);
-        for (int attempt = 0; attempt < attempts && !matches.isEmpty(); attempt++) {
-            if (serverLevel.random.nextFloat() < chance) {
-                echoBreak(serverLevel, matches.remove(serverLevel.random.nextInt(matches.size())), player);
-            }
+        if (!matches.isEmpty()) {
+            echoBreak(serverLevel, matches.get(serverLevel.random.nextInt(matches.size())), player);
         }
     }
 

@@ -26,7 +26,7 @@ Backlog for this mod. Built abilities move out of "Open slots" and into "Shipped
 | `swift_step` | Triggered | `DAMAGE_TAKEN`, 90s cooldown + 10 damage | Hare | Gold 1, Diamond 2, Netherite 3 |
 | `spider_climb` | Passive | Spider climb via `LivingEntity#onClimbable` mixin | Wyrm | Diamond+, single level |
 | `water_running` | Passive | Sprint across water on a full-cube `LiquidBlock#getCollisionShape` mixin (feet dry, so vanilla never cancels sprint); stop sprinting and you drop in | Hare | Diamond+, single level |
-| `echoing_blow` | Passive | `BlockEvent.BreakEvent`: 25/40/60% chance a matching adjoining block breaks too (twice at level 3), with tool context so Fortune/Silk apply | Wyrm | Gold 1, Diamond 2, Netherite 3 |
+| `echoing_blow` | Passive | `BlockEvent.BreakEvent`: 25/40/60% chance a matching adjoining block breaks too, with tool context so Fortune/Silk apply | Wyrm | Gold 1, Diamond 2, Netherite 3 |
 
 ## Open slots
 

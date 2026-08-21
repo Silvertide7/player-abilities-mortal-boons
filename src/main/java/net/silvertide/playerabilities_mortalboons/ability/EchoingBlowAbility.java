@@ -13,8 +13,4 @@ public final class EchoingBlowAbility extends PassiveAbility {
     public float echoChance(int level) {
         return byLevel(level, 0.25f, 0.4f, 0.6f);
     }
-
-    public int echoAttempts(int level) {
-        return byLevel(level, 1, 1, 2);
-    }
 }
