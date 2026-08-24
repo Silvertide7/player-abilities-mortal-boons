@@ -9,6 +9,7 @@ import net.silvertide.playerabilities_mortalboons.ability.BloodscentAbility;
 import net.silvertide.playerabilities_mortalboons.ability.EchoingBlowAbility;
 import net.silvertide.playerabilities_mortalboons.ability.GuardianAngelAbility;
 import net.silvertide.playerabilities_mortalboons.ability.SecondWindAbility;
+import net.silvertide.playerabilities_mortalboons.ability.SlipstreamAbility;
 import net.silvertide.playerabilities_mortalboons.ability.SpiderClimbAbility;
 import net.silvertide.playerabilities_mortalboons.ability.SwiftStepAbility;
 import net.silvertide.playerabilities_mortalboons.ability.WaterRunningAbility;
@@ -22,6 +23,7 @@ public final class ModAbilities {
     public static final SpiderClimbAbility SPIDER_CLIMB = new SpiderClimbAbility();
     public static final WaterRunningAbility WATER_RUNNING = new WaterRunningAbility();
     public static final EchoingBlowAbility ECHOING_BLOW = new EchoingBlowAbility();
+    public static final SlipstreamAbility SLIPSTREAM = new SlipstreamAbility();
 
     private ModAbilities() {
     }
@@ -36,6 +38,7 @@ public final class ModAbilities {
             helper.register(PlayerAbilitiesMortalBoons.id("spider_climb"), SPIDER_CLIMB);
             helper.register(PlayerAbilitiesMortalBoons.id("water_running"), WATER_RUNNING);
             helper.register(PlayerAbilitiesMortalBoons.id("echoing_blow"), ECHOING_BLOW);
+            helper.register(PlayerAbilitiesMortalBoons.id("slipstream"), SLIPSTREAM);
         });
     }
 }

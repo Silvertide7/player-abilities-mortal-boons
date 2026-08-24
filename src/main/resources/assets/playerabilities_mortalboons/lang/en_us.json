@@ -2,11 +2,11 @@
   "ability.playerabilities_mortalboons.guardian_angel": "Guardian Angel",
   "ability.playerabilities_mortalboons.guardian_angel.description": "When a blow would kill you, you survive it and recover 25% / 50% / 75% of your maximum health.",
   "ability.playerabilities_mortalboons.second_wind": "Second Wind",
-  "ability.playerabilities_mortalboons.second_wind.description": "Dropping below 30% health steadies you with Regeneration I / II / III for 30 seconds.",
+  "ability.playerabilities_mortalboons.second_wind.description": "Taking a hit at or below 30% health steadies you with Regeneration I / II / III for 30 seconds.",
   "ability.playerabilities_mortalboons.bloodscent": "Bloodscent",
   "ability.playerabilities_mortalboons.bloodscent.description": "Every second kill leaves you hunting, with Strength I / I / II and Speed I for 8 / 10 / 12 seconds.",
   "ability.playerabilities_mortalboons.swift_step": "Swift Step",
-  "ability.playerabilities_mortalboons.swift_step.description": "Once you have taken 10 damage, the next hit sends you moving with Speed I / I / II for 10 / 15 / 15 seconds.",
+  "ability.playerabilities_mortalboons.swift_step.description": "After 10 damage adds up, the hit that completes it sends you moving with Speed I / I / II for 10 / 15 / 15 seconds.",
   "ability.playerabilities_mortalboons.spider_climb": "Spider Climb",
   "ability.playerabilities_mortalboons.spider_climb.description": "You climb any wall like a spider.",
   "boon.playerabilities_mortalboons.guardian_angel": "Guardian Angel",
@@ -18,6 +18,9 @@
   "ability.playerabilities_mortalboons.water_running.description": "Sprint across the surface of still water. Slow down or stop and you drop in.",
   "boon.playerabilities_mortalboons.water_running": "Water Running",
   "ability.playerabilities_mortalboons.echoing_blow": "Echoing Blow",
-  "ability.playerabilities_mortalboons.echoing_blow.description": "Breaking a block has a 25% / 40% / 60% chance to also break a matching block beside it.",
-  "boon.playerabilities_mortalboons.echoing_blow": "Echoing Blow"
+  "ability.playerabilities_mortalboons.echoing_blow.description": "Breaking a block with the proper tool has a 25% / 40% / 60% chance to also break a matching block beside it.",
+  "boon.playerabilities_mortalboons.echoing_blow": "Echoing Blow",
+  "ability.playerabilities_mortalboons.slipstream": "Slipstream",
+  "ability.playerabilities_mortalboons.slipstream.description": "While sprinting, arrows and tridents have a 25% / 40% / 60% chance to miss you.",
+  "boon.playerabilities_mortalboons.slipstream": "Slipstream"
 }

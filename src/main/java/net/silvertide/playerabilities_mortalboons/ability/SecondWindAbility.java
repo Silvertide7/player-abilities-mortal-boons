@@ -32,7 +32,7 @@ public final class SecondWindAbility extends TriggeredAbility<PlayerTriggers.Hea
 
     @Override
     public boolean shouldTrigger(ServerPlayer player, int level, PlayerTriggers.HealthChange context) {
-        return context.droppedBelow(TRIGGER_HEALTH_FRACTION);
+        return context.healthAfter() > 0 && context.healthAfter() <= context.maxHealth() * TRIGGER_HEALTH_FRACTION;
     }
 
     @Override

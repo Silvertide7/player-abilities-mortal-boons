@@ -1,0 +1,13 @@
+{
+  "weight": [0, 10, 10, 10],
+  "types": [
+    "mortal_boons:raven"
+  ],
+  "description": "What is loosed still must find you.",
+  "ability_grants": [
+    {
+      "ability": "playerabilities_mortalboons:slipstream",
+      "level": [1, 1, 2, 3]
+    }
+  ]
+}

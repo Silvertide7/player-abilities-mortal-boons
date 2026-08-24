@@ -5,6 +5,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
@@ -20,7 +21,7 @@ public final class EchoingBlowHandler {
     private EchoingBlowHandler() {
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         if (!(event.getLevel() instanceof ServerLevel serverLevel)
                 || !(event.getPlayer() instanceof ServerPlayer player)
@@ -34,18 +35,21 @@ public final class EchoingBlowHandler {
         if (serverLevel.random.nextFloat() >= ModAbilities.ECHOING_BLOW.echoChance(level)) {
             return;
         }
-        List<BlockPos> matches = matchingNeighbors(serverLevel, event.getPos(), event.getState().getBlock());
+        List<BlockPos> matches = matchingNeighbors(serverLevel, player, event.getPos(), event.getState().getBlock());
         if (!matches.isEmpty()) {
             echoBreak(serverLevel, matches.get(serverLevel.random.nextInt(matches.size())), player);
         }
     }
 
-    private static List<BlockPos> matchingNeighbors(ServerLevel serverLevel, BlockPos center, Block block) {
+    private static List<BlockPos> matchingNeighbors(ServerLevel serverLevel, ServerPlayer player, BlockPos center, Block block) {
         List<BlockPos> matches = new ArrayList<>();
         for (BlockPos neighbor : BlockPos.betweenClosed(center.offset(-1, -1, -1), center.offset(1, 1, 1))) {
+            BlockState state = serverLevel.getBlockState(neighbor);
             if (!neighbor.equals(center)
-                    && serverLevel.getBlockState(neighbor).is(block)
-                    && serverLevel.getBlockEntity(neighbor) == null) {
+                    && state.is(block)
+                    && player.hasCorrectToolForDrops(state)
+                    && serverLevel.getBlockEntity(neighbor) == null
+                    && serverLevel.mayInteract(player, neighbor)) {
                 matches.add(neighbor.immutable());
             }
         }

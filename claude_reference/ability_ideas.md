@@ -21,23 +21,21 @@ Backlog for this mod. Built abilities move out of "Open slots" and into "Shipped
 | Ability | Kind | Trigger / use | Sign | Levels |
 | --- | --- | --- | --- | --- |
 | `guardian_angel` | Triggered | `LETHAL_DAMAGE` | Bear | Diamond 1, Netherite 3 |
-| `second_wind` | Triggered | `HEALTH_DROPPED` below 30% | Bear | Gold 1, Diamond 2, Netherite 3 |
+| `second_wind` | Triggered | `HEALTH_DROPPED`, any hit landing at/below 30% | Bear | Gold 1, Diamond 2, Netherite 3 |
 | `bloodscent` | Triggered | `KILL`, 30s cooldown + 2 kills | Wolf | Gold 1, Diamond 2, Netherite 3 |
 | `swift_step` | Triggered | `DAMAGE_TAKEN`, 90s cooldown + 10 damage | Hare | Gold 1, Diamond 2, Netherite 3 |
 | `spider_climb` | Passive | Spider climb via `LivingEntity#onClimbable` mixin | Wyrm | Diamond+, single level |
-| `water_running` | Passive | Sprint across water on a full-cube `LiquidBlock#getCollisionShape` mixin (feet dry, so vanilla never cancels sprint); stop sprinting and you drop in | Hare | Diamond+, single level |
+| `water_running` | Passive | Sprint across water on a full-cube `LiquidBlock#getCollisionShape` mixin (feet dry, so vanilla never cancels sprint); stop sprinting and you drop in. `WaterRunningSplashHandler` adds foot splashes + quiet swim sound | Hare | Diamond+, single level |
 | `echoing_blow` | Passive | `BlockEvent.BreakEvent`: 25/40/60% chance a matching adjoining block breaks too, with tool context so Fortune/Silk apply | Wyrm | Gold 1, Diamond 2, Netherite 3 |
+| `slipstream` | Passive | `ProjectileImpactEvent`: while sprinting, arrows/tridents miss 25/40/60% of the time; cancel = projectile keeps flying, one roll per projectile-player pair via weak map | Raven | Gold 1, Diamond 2, Netherite 3 |
 
 ## Open slots
 
-1 passive, 4 active. Triggered is full. Gravekeeper is ruled out for the last passive slot.
+4 active. Triggered and passive are full. Gravekeeper and backstab were considered and ruled out.
 
 Mixin infrastructure now exists (`playerabilities_mortalboons.mixins.json` + `[[mixins]]` in the
-mods.toml template) — `skimmer`-style movement passives no longer pay the setup cost, but each mixin
+mods.toml template) — water_running-style movement passives no longer pay the setup cost, but each mixin
 still has to be ported by hand on the 1.20.1 Forge branch.
-
-All four boons are at weight 100 for testing (Guardian Angel `[0, 0, 100, 100]`, the rest
-`[0, 100, 100, 100]`). Drop them back to 10 before shipping.
 
 ## Triggered ideas
 
@@ -70,11 +68,9 @@ Every hook below was checked against the 1.21.1 sources.
 
 | Name | Sign | What it does | Lane and hook |
 | --- | --- | --- | --- |
-| `gravekeeper` | Raven | The items you drop on death refuse to rot away, and fire cannot touch them. | Event — `LivingDropsEvent`, raise `ItemEntity.lifespan` and set fire immunity |
 | `ironblood` | Bear | Poison, hunger and wither cannot take hold in you. | Event — `MobEffectEvent.Applicable`, `setResult(DO_NOT_APPLY)` |
 | `unhindered` | Hare | Cobwebs, soul sand, honey and powder snow no longer drag at you. | Mixin — no-op `Entity#makeStuckInBlock` |
 | `emberforge` | Wyrm | What you mine comes out already smelted. | Event — `BlockDropsEvent`, swap drops for their smelting results |
-| `glancing_blow` | Raven | Arrows and thrown things sometimes pass you by entirely. | Event — cancel `ProjectileImpactEvent` on a roll |
 | `bloodfeast` | Wolf | A share of the harm you deal returns to you as health. | Event — `LivingDamageEvent.Post`, heal a fraction |
 | `thornhide` | Bear | Whoever strikes you in melee takes some of it back. | Event — `LivingDamageEvent.Post`, hurt the attacker |
 | `unseen` | Raven | Hostile mobs will not target you until you strike first. | Event — cancel `LivingChangeTargetEvent` |

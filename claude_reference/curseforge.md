@@ -18,12 +18,14 @@ Mortal Boons turns progression into a gamble. Craft a Fatestone, pay it experien
 ## Passive Abilities
 
 *    **![](<insert spider_climb.png here>) Spider Climb**: Climb any wall like a spider. Keep moving to keep climbing. Works on anything you can press against, and can be toggled off in the ability book.
-*    **![](<insert water_running.png here>) Water Running**: Sprint across the surface of open water. Slow down or stop and it takes you back. Leaping from a sprint-swim lands you running on the waves.
+*    **![](<insert water_running.png here>) Water Running**: Sprint across the surface of still water. Slow down or stop and it takes you back. Leaping from a sprint-swim lands you running on the waves.
+*    **![](<insert echoing_blow.png here>) Echoing Blow**: Breaking a block sometimes breaks a matching block beside it, drops and all. Higher levels echo more often.
+*    **![](<insert slipstream.png here>) Slipstream**: While you sprint, arrows and tridents tend to miss you. Stand still and you are mortal again. Higher levels slip more often.
 
 ## Triggered Abilities
 
-*    **![](<insert guardian_angel.png here>) Guardian Angel**: When a blow would kill you, the wound never lands and you are restored to a share of your maximum health. Higher levels restore more of it. Hours pass before fate will step in again.
-*    **![](<insert second_wind.png here>) Second Wind**: Dropping below a third of your health steadies you with regeneration for half a minute. Higher levels mend you faster.
+*    **![](<insert guardian_angel.png here>) Guardian Angel**: When a blow would kill you, the wound never lands and you are restored to a share of your maximum health. Higher levels restore more of it. An hour passes before fate will step in again.
+*    **![](<insert second_wind.png here>) Second Wind**: Any hit that lands while you are badly hurt steadies you with regeneration for half a minute. Higher levels mend you faster.
 *    **![](<insert bloodscent.png here>) Bloodscent**: Every second kill leaves you hunting, granting strength and speed. Higher levels hit harder and hold the scent longer.
 *    **![](<insert swift_step.png here>) Swift Step**: Once you have taken enough punishment, the next hit sends you moving instead of reeling. Higher levels run faster and further.
 
